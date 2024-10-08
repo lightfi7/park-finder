@@ -3,22 +3,19 @@ import { GoogleMap, LoadScript, Marker, Polyline } from '@react-google-maps/api'
 import { fetchParks } from '../services/ParkService';
 
 const MapComponent = () => {
-    const [userLocation, setUserLocation] = useState({
-        lat: 25.3617472,
-        lng: 51.5336085,
-    });
+    const [userLocation, setUserLocation] = useState();
     const [parks, setParks] = useState([]);
     const [selectedRadius, setSelectedRadius] = useState(10);
     const [nearestPark, setNearestPark] = useState(null);
 
     useEffect(() => {
         // Get user's current location
-        // navigator.geolocation.getCurrentPosition((position) => {
-        //     setUserLocation({
-        //         lat: position.coords.latitude,
-        //         lng: position.coords.longitude,
-        //     });
-        // });
+        navigator.geolocation.getCurrentPosition((position) => {
+            setUserLocation({
+                lat: position.coords.latitude,
+                lng: position.coords.longitude,
+            });
+        });
     }, []);
 
     useEffect(() => {
