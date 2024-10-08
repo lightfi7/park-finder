@@ -6,6 +6,8 @@ Run the backend by using "npm start" command
 # Frontend #
 Run the frontend by using "npm start" command
 
+
+### ParkService ###
 <code>
 export const fetchParks = (lat, lng, radius) => new Promise((resolve, reject) => {
     axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/parks`, {
